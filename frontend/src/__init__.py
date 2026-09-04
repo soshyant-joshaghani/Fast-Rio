@@ -4,17 +4,17 @@ from pathlib import Path
 
 import rio
 
-from . import components as comps
-from .modules.shell import APP_NAME
-from .modules.shell.stores.auth import AuthSettings, AuthUser, apply_login, apply_logout, set_loading
-from .modules.shell.stores.theme import (
+from .modules.base import APP_NAME
+from .modules.base.root_component import RootComponent
+from .modules.base.stores.auth import AuthSettings, AuthUser, apply_login, apply_logout, set_loading
+from .modules.base.stores.theme import (
     DARK_THEME,
     LIGHT_THEME,
     ThemeSettings,
     apply_theme,
     migrate_theme_settings,
 )
-from .modules.shell.utils import auth_api
+from .modules.base.utils import auth_api
 
 
 async def on_session_start(session: rio.Session) -> None:
@@ -41,7 +41,7 @@ async def on_session_start(session: rio.Session) -> None:
 
 app = rio.App(
     name=APP_NAME,
-    build=comps.RootComponent,
+    build=RootComponent,
     theme=(LIGHT_THEME, DARK_THEME),
     icon=Path(__file__).parent / "assets" / "pwa-192.png",
     default_attachments=[AuthSettings(), ThemeSettings()],

@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import rio
 
-from src.components.labeled_switch import LabeledSwitch
-from src.modules.base import users_api
-from src.modules.shell.stores import auth as auth_store
-from src.modules.shell.stores.auth import AuthUser
+from src.modules.base.ui.labeled_switch import LabeledSwitch
+from src.modules.base.users import api as users_api
+from src.modules.base.stores import auth as auth_store
+from src.modules.base.stores.auth import AuthUser
 
 
 @rio.page(

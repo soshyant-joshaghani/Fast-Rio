@@ -171,6 +171,16 @@ See [docs/development.md](docs/development.md).
 
 Use the smallest appropriate implementation. Not every feature needs every layer — match the sample module's depth for similar CRUD features.
 
+### Frontend modules (mandatory)
+
+Under the frontend modules root (`frontend/src/modules/`) there are **only**:
+
+- `base/` — kit/platform (auth, users, shell, stores) + design primitives at `base/ui/`
+- `apps/<domain>/` — product domains (API clients + UI), mirroring `backend/app/modules/apps/<domain>/`
+
+There is **no** project `components/` folder as the app UI home. Modules are the component home.
+Do not add `global/`, `shell/`, `layout/`, or a top-level `modules/ui/` peer of `base`/`apps`.
+
 ---
 
 ## Project layout
@@ -190,7 +200,7 @@ fast-rio/
 │       ├── system/           # health, private dev routes
 │       └── apps/             # your product modules (+ sample/)
 ├── frontend/src/
-│   ├── modules/shell/        # auth, shared stores
+│   ├── modules/base/         # kit/platform (auth, shell, widgets) + ui/
 │   ├── modules/apps/         # feature HTTP clients
 │   └── pages/                # @rio.page routes
 └── tests/                    # mirrors backend module paths

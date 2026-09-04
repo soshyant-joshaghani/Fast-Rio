@@ -102,7 +102,7 @@ Do **not** introduce a separate application-exception hierarchy or custom error 
 - Rio is first-class — implement UI in the feature module, not scattered globals.
 - Use `frontend/src/modules/apps/<name>/api.py` for HTTP clients.
 - Use `@rio.page` in `frontend/src/pages/` for routes.
-- Reuse shell auth from `frontend/src/modules/shell/`.
+- Reuse shell auth from `frontend/src/modules/base/`.
 
 ## Database changes
 

@@ -41,8 +41,8 @@ FoxG foundation kits (**Fast-Next**, **Fast-Svelte**, **Fast-Rio**) share the sa
 
 | Kit | Shell location |
 |-----|----------------|
-| Fast-Next | `frontend/src/components/layout/`, `frontend/src/app/(dashboard)/` |
-| Fast-Svelte | `frontend/src/lib/components/layout/`, `frontend/src/routes/(dashboard)/` |
-| Fast-Rio | `frontend/src/components/sidebar.py`, `frontend/src/components/root_component.py` |
+| Fast-Next | `frontend/src/lib/modules/base/`, `frontend/src/app/(dashboard)/` |
+| Fast-Svelte | `frontend/src/lib/modules/base/`, `frontend/src/routes/(dashboard)/` |
+| Fast-Rio | `frontend/src/modules/base/sidebar.py`, `frontend/src/modules/base/root_component.py` |
 
 Do not copy UI code between kits. Match behavior and visuals only. Shared-layer (non-UI) changes transfer to all four kits — see [fast-template/README.md](../../README.md).

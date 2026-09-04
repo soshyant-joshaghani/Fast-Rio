@@ -8,9 +8,9 @@ import typing as t
 import httpx
 
 from src.config.backend import API_BASE_URL
-from src.modules.shell.utils.api_error import ApiError
-from src.modules.shell.utils.auth_api import format_api_error
-from src.modules.shell.utils.auth_fetch import auth_fetch
+from src.modules.base.utils.api_error import ApiError
+from src.modules.base.utils.auth_api import format_api_error
+from src.modules.base.utils.auth_fetch import auth_fetch
 
 
 @dataclasses.dataclass(frozen=True)

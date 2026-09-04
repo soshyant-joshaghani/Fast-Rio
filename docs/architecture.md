@@ -97,9 +97,8 @@ fast-rio/
 │       └── apps/             # Product features
 ├── frontend/src/
 │   ├── config/               # API URL helpers
-│   ├── components/           # Shell (navbar, root layout)
 │   ├── modules/
-│   │   ├── shell/            # Auth, shared stores
+│   │   ├── base/             # Auth, shell widgets, stores (+ ui/)
 │   │   └── apps/             # Feature HTTP clients + UI helpers
 │   └── pages/                # @rio.page routes
 └── tests/
@@ -163,8 +162,8 @@ Open `http://dashboard.localhost/sample/notes` after starting dev to see the UI.
 Rio pages are Python classes decorated with `@rio.page`. The shell provides:
 
 - `RootComponent` — navbar + page view
-- `modules/shell/authentication.py` — login UI
-- `modules/shell/stores/auth.py` — session persistence
+- `modules/base/authentication.py` — login UI
+- `modules/base/stores/auth.py` — session persistence
 
 Feature pages call the FastAPI backend via `httpx` using `API_BASE_URL` from `frontend/src/config/backend.py`.
 

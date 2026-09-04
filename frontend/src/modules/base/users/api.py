@@ -6,8 +6,8 @@ import dataclasses
 import typing as t
 
 from src.config.backend import API_BASE_URL
-from src.modules.shell.utils.auth_api import format_api_error
-from src.modules.shell.utils.auth_fetch import auth_fetch
+from src.modules.base.utils.auth_api import format_api_error
+from src.modules.base.utils.auth_fetch import auth_fetch
 
 
 @dataclasses.dataclass(frozen=True)

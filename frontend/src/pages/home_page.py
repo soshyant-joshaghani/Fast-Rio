@@ -6,8 +6,8 @@ import httpx
 import rio
 
 from src.config.backend import API_BASE_URL
-from src.modules.shell.stores import auth as auth_store
-from src.modules.shell.utils import auth_api
+from src.modules.base.stores import auth as auth_store
+from src.modules.base.utils import auth_api
 
 
 @rio.page(

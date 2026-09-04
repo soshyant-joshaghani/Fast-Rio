@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import rio
 
-from src.modules.shell.stores import auth as auth_store
-from src.modules.shell.stores.auth import AuthUser
-from src.modules.shell.stores.theme import is_dark, toggle_theme
+from src.modules.base.stores import auth as auth_store
+from src.modules.base.stores.auth import AuthUser
+from src.modules.base.stores.theme import is_dark, toggle_theme
 
 
 class Navbar(rio.Component):

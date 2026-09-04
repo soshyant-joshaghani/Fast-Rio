@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import rio
 
-from src import components as comps
-from src.modules.shell.authentication import Authentication
-from src.modules.shell.stores import auth as auth_store
+from src.modules.base.authentication import Authentication
+from src.modules.base.navbar import Navbar
+from src.modules.base.sidebar import Sidebar
+from src.modules.base.stores import auth as auth_store
 
 
 class RootComponent(rio.Component):
@@ -36,9 +37,9 @@ class RootComponent(rio.Component):
             )
 
         return rio.Row(
-            comps.Sidebar(),
+            Sidebar(),
             rio.Column(
-                comps.Navbar(),
+                Navbar(),
                 rio.PageView(
                     grow_y=True,
                     margin=2,

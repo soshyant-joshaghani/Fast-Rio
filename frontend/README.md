@@ -12,11 +12,21 @@ frontend/
 └── src/
     ├── __init__.py          # rio.App
     ├── config/              # API_BASE_URL
-    ├── modules/shell/       # auth shell + helpers
+    ├── modules/base/        # kit/platform (auth, shell, widgets)
+    │   └── ui/              # small widget primitives
     ├── modules/apps/        # per-app UI modules
-    ├── components/          # RootComponent + Navbar
     └── pages/               # @rio.page routes
 ```
+
+### Frontend modules (mandatory)
+
+Under the frontend modules root (`src/modules/`) there are **only**:
+
+- `base/` — kit/platform (auth, users, shell, stores) + design primitives at `base/ui/`
+- `apps/<domain>/` — product domains (API clients + UI), mirroring `backend/app/modules/apps/<domain>/`
+
+There is **no** project `components/` folder as the app UI home. Modules are the component home.
+Do not add `global/`, `shell/`, `layout/`, or a top-level `modules/ui/` peer of `base`/`apps`.
 
 ## Dev
 

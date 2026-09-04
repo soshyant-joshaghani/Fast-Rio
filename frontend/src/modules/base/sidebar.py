@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import rio
 
-from src.modules.shell import APP_NAME
-from src.modules.shell.nav import NAV_ITEMS
-from src.modules.shell.stores import auth as auth_store
-from src.modules.shell.stores.auth import AuthUser
+from src.modules.base import APP_NAME
+from src.modules.base.nav import NAV_ITEMS
+from src.modules.base.stores import auth as auth_store
+from src.modules.base.stores.auth import AuthUser
 
 
 class Sidebar(rio.Component):

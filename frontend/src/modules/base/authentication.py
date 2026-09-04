@@ -6,8 +6,8 @@ import re
 
 import rio
 
-from src.modules.shell.stores import auth as auth_store
-from src.modules.shell.utils import auth_api
+from src.modules.base.stores import auth as auth_store
+from src.modules.base.utils import auth_api
 
 
 class Authentication(rio.Component):

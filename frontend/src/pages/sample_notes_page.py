@@ -5,8 +5,8 @@ from __future__ import annotations
 import rio
 
 from src.modules.apps.sample import api as notes_api
-from src.modules.shell.stores import auth as auth_store
-from src.modules.shell.utils.api_error import ApiError
+from src.modules.base.stores import auth as auth_store
+from src.modules.base.utils.api_error import ApiError
 
 
 @rio.page(

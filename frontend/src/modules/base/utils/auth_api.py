@@ -7,8 +7,8 @@ import typing as t
 import httpx
 
 from src.config.backend import API_BASE_URL
-from src.modules.shell.stores.auth import AuthUser
-from src.modules.shell.utils.auth_fetch import auth_fetch
+from src.modules.base.stores.auth import AuthUser
+from src.modules.base.utils.auth_fetch import auth_fetch
 
 
 def format_api_error(detail: t.Any, fallback: str) -> str:

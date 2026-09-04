@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import rio
 
-from src.modules.shell import APP_NAME
-from src.modules.shell.authentication import Authentication
+from src.modules.base import APP_NAME
+from src.modules.base.authentication import Authentication
 
 
 @rio.page(
