@@ -2,7 +2,11 @@
 # Stop the production stack (containers only — volumes and ./letsencrypt/ are kept).
 set -euo pipefail
 cd "$(cd "$(dirname "$0")/../.." && pwd)"
-docker compose down --remove-orphans
+COMPOSE_ARGS=(-f compose.yml)
+if [[ -f compose.minio.yml && "${FAST_RIO_STORAGE:-bundled}" != "external" ]]; then
+  COMPOSE_ARGS+=(-f compose.minio.yml)
+fi
+docker compose "${COMPOSE_ARGS[@]}" down --remove-orphans
 echo
 echo "Production stack stopped."
 echo "Certificates: ./letsencrypt/acme.json (unchanged)"

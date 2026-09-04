@@ -111,9 +111,8 @@ services:
   prestart:
     <<: *backend-image
     restart: "no"
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
+    pull_policy: never
+    # Image built by `backend` (shared tag). Duplicate build: races Bake export.
     depends_on:
       db:
         condition: service_healthy
@@ -138,6 +137,7 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
+    # Sole builder for fast-rio-backend:prod (prestart + worker reuse this tag).
     depends_on:
       db:
         condition: service_healthy
@@ -189,6 +189,8 @@ services:
   worker:
     <<: *backend-image
     restart: always
+    pull_policy: never
+    # Image built by `backend` (shared tag). Duplicate build: races Bake export.
     depends_on:
       redis:
         condition: service_healthy
