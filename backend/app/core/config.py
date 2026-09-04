@@ -2,6 +2,7 @@ import secrets
 import warnings
 from pathlib import Path
 from typing import Annotated, Any, Literal
+from urllib.parse import quote
 
 from pydantic import (
     AnyUrl,
@@ -69,6 +70,16 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER: EmailStr
     FIRST_SUPERUSER_PASSWORD: str
     EMAIL_TEST_USER: EmailStr = "test@example.com"
+
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def REDIS_URL(self) -> str:
+        if self.REDIS_PASSWORD:
+            enc = quote(self.REDIS_PASSWORD, safe="")
+            auth_part = f":{enc}@"
+        else:
+            auth_part = ""
+        return f"redis://{auth_part}{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
 
     @computed_field  # type: ignore[prop-decorator]
     @property

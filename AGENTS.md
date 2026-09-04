@@ -135,6 +135,14 @@ When you add or change a table:
 
 See [docs/background-jobs.md](docs/background-jobs.md).
 
+## Redis read-cache
+
+- **Must** use `app.core.cache` (`cache_get` / `cache_set` / `cache_delete_prefix`) for hot **shared/public** reads whenever Redis is reachable (full profile / production).
+- Soft-degrade: if Redis is missing (slim) or unreachable, helpers no-op and services hit Postgres — no `REDIS_CACHE_ENABLED` flag.
+- Invalidate on writes (`cache_delete_prefix("<domain>:v1:")`). Canonical reference: Fast-Shop `catalog` service (`invalidate_catalog_cache`).
+- **Do not** cache auth, cart, orders, or payments.
+- The `sample` notes module **must** use `app.core.cache` (list/get + invalidate on write) — it is the canonical agent showcase when Redis is available.
+
 ## CLI
 
 Development is operated through `__ctrl__/` — the project control layer:
