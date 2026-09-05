@@ -29,7 +29,7 @@ Choose Full or Slim: [runtime-profiles.md](runtime-profiles.md)
 ## Hot reload
 
 - **API:** uvicorn `--reload` on port 18000 (host)
-- **UI:** `rio run` on port 3000 (host)
+- **UI:** `rio run` on port 5000 (host)
 - **Infra:** Docker Compose (`compose.dev.yml`)
 
 Edit Python files; services restart automatically.
@@ -64,7 +64,7 @@ Rio only:
 cd frontend
 set PUBLIC_API_BASE_URL=http://localhost:18000/api/v1
 set PYTHONPATH=.
-..\.venv\Scripts\python.exe -m rio run --port 3000
+..\.venv\Scripts\python.exe -m rio run --port 5000
 ```
 
 Worker (full stack):

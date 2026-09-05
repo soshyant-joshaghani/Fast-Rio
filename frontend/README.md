@@ -35,12 +35,12 @@ From repo root (after `fast-rio-ctrl setup-local`):
 ```bat
 cd frontend
 set PUBLIC_API_BASE_URL=http://localhost:18000/api/v1
-rio run --port 3000
+rio run --port 5000
 ```
 
 Or use `__ctrl__\fast-rio-ctrl.bat dev run all` (starts Traefik + API + Rio).
 
-Traefik: http://dashboard.localhost → Rio :3000
+Traefik: http://dashboard.localhost → Rio :5000
 
 ## Production
 

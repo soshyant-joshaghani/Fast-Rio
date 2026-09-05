@@ -102,7 +102,7 @@ fast-rio-ctrl.bat dev reset all
 
 | Action | Infra (compose.dev.yml) | Apps (host) |
 |--------|-------------------------|-------------|
-| `run` / `start` | `up -d` db, redis (full), proxy, adminer + migrate | uvicorn :18000, arq worker (full), rio :3000 |
+| `run` / `start` | `up -d` db, redis (full), proxy, adminer + migrate | uvicorn :18000, arq worker (full), rio :5000 |
 | `stop` | `compose stop` — containers kept | kill host processes |
 | `down` | `compose down` — volumes kept | kill host processes |
 | `purge` | `compose down -v` — wipe data, stay down | kill host processes |

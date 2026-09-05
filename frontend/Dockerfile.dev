@@ -12,6 +12,6 @@ RUN python -m venv /app/.venv \
 
 COPY frontend /app/frontend
 
-EXPOSE 3000
+EXPOSE 5000
 
-CMD ["rio", "run", "--port", "3000", "--public"]
+CMD ["rio", "run", "--port", "5000", "--public"]
