@@ -33,7 +33,7 @@ def _run_backend() -> int:
     cov = _coverage_exe(py)
 
     print("[fast-rio] Backend tests (pytest + coverage)")
-    print("  Requires dev DB: fast-rio-ctrl.bat dev run infra  (localhost:15432)")
+    print("  Requires dev DB: fast-rio-ctrl.bat dev run infra  (localhost:5432)")
     steps: list[list[str]] = [
         [str(py), "app/tests_pre_start.py"],
         [*cov, "run", "-m", "pytest", str(tests_backend)],

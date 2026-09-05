@@ -5,7 +5,7 @@
 | Context | Host | Port |
 |---------|------|------|
 | Adminer (inside Docker) | `db` | `5432` |
-| Host tools, pytest, IDE | `localhost` | `15432` |
+| Host tools, pytest, IDE | `localhost` | `5432` |
 
 Credentials: `.env` (`POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`).
 

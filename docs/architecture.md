@@ -172,7 +172,7 @@ Feature pages call the FastAPI backend via `httpx` using `API_BASE_URL` from `fr
 - Connection settings: `backend/app/core/config.py` → `CORE_SQLALCHEMY_DATABASE_URI`
 - Migrations run via `backend/scripts/prestart.sh` (Alembic upgrade head)
 - Alembic env whitelists tables in `included_tables` — add new tables there
-- Dev DB port: `localhost:15432` (published from Docker)
+- Dev DB port: `localhost:5432` (published from Docker)
 
 ## Authentication
 

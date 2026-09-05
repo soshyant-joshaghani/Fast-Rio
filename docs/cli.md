@@ -37,7 +37,7 @@ fast-rio-ctrl.bat dev reset all
 | Target | Meaning |
 |--------|---------|
 | `infra` | Docker: db, redis (full), proxy, adminer + migrations |
-| `apps` | Host: uvicorn :18000, ARQ worker (full), rio :5000 |
+| `apps` | Host: uvicorn :8000, ARQ worker (full), rio :5000 |
 | `all` | Both (run order: infra → apps; stop: apps → infra) |
 
 See [runtime-profiles.md](runtime-profiles.md) for `--slim`.

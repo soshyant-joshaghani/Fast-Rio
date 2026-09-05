@@ -22,7 +22,7 @@ http:
     fast-rio-backend-host:
       loadBalancer:
         servers:
-          - url: http://host.docker.internal:18000
+          - url: http://host.docker.internal:8000
     fast-rio-frontend-host:
       loadBalancer:
         servers:

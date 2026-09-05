@@ -28,7 +28,7 @@ Choose Full or Slim: [runtime-profiles.md](runtime-profiles.md)
 
 ## Hot reload
 
-- **API:** uvicorn `--reload` on port 18000 (host)
+- **API:** uvicorn `--reload` on port 8000 (host)
 - **UI:** `rio run` on port 5000 (host)
 - **Infra:** Docker Compose (`compose.dev.yml`)
 
@@ -55,14 +55,14 @@ API only:
 ```bat
 cd backend
 set PYTHONPATH=.
-..\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 18000
+..\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000
 ```
 
 Rio only:
 
 ```bat
 cd frontend
-set PUBLIC_API_BASE_URL=http://localhost:18000/api/v1
+set PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
 set PYTHONPATH=.
 ..\.venv\Scripts\python.exe -m rio run --port 5000
 ```

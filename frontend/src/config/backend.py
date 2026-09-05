@@ -1,7 +1,7 @@
 """API base URL for the FastAPI backend.
 
 Dev (Traefik): browser hits dashboard.localhost; Python server-side calls
-use host.docker.internal or localhost:18000 via PUBLIC_API_BASE_URL.
+use host.docker.internal or localhost:8000 via PUBLIC_API_BASE_URL.
 """
 
 from __future__ import annotations

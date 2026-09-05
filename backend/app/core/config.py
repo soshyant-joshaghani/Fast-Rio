@@ -63,7 +63,7 @@ class Settings(BaseSettings):
     POSTGRES_DB: str = ""
 
     REDIS_HOST: str = "localhost"
-    REDIS_PORT: int = 16379
+    REDIS_PORT: int = 6379
     REDIS_DB: int = 0
     REDIS_PASSWORD: str = ""
 

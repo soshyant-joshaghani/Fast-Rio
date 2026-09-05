@@ -24,7 +24,7 @@ From repo root after `fast-rio-ctrl setup-local`:
 .venv\Scripts\activate
 cd backend
 set PYTHONPATH=%CD%
-uvicorn app.main:app --reload --port 18000
+uvicorn app.main:app --reload --port 8000
 ```
 
 Migrations:

@@ -34,7 +34,7 @@ From repo root (after `fast-rio-ctrl setup-local`):
 
 ```bat
 cd frontend
-set PUBLIC_API_BASE_URL=http://localhost:18000/api/v1
+set PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
 rio run --port 5000
 ```
 
@@ -54,6 +54,6 @@ Root `requirements.txt` installs `rio-ui[window]` (pywebview / PySide6). From `f
 
 ```bat
 set PYTHONPATH=%CD%
-set PUBLIC_API_BASE_URL=http://localhost:18000/api/v1
+set PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
 python -c "import src; src.app.run_in_window()"
 ```

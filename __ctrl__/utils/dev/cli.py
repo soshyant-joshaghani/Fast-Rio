@@ -27,19 +27,19 @@ SLIM_INFRA_SERVICES = ("db", "adminer")
 
 # (window_title, port) — host processes; port None = no listener (e.g. ARQ worker)
 APP_PROCESSES = (
-    ("fast-rio-backend", 18000),
+    ("fast-rio-backend", 8000),
     ("fast-rio-worker", None),
     ("fast-rio-frontend", 5000),
 )
 SLIM_APP_PROCESSES = (
-    ("fast-rio-backend", 18000),
+    ("fast-rio-backend", 8000),
     ("fast-rio-frontend", 5000),
 )
 
 STACK_OPEN_URLS: dict[str, tuple[str, ...]] = {
     "infra": (
         "http://adminer.localhost/",
-        "http://localhost:18090/",
+        "http://localhost:8080/",
     ),
     "apps": (
         "http://dashboard.localhost/",
@@ -137,7 +137,7 @@ def _compose(*args: str, check: bool = True) -> int:
                 "  Free it, then retry:\n"
                 "    docker ps --format \"{{.Names}}\\t{{.Ports}}\"\n"
                 "    docker stop <conflicting-proxy-container>\n"
-                "  Apps still work directly at http://localhost:5000 and http://localhost:18000/docs\n"
+                "  Apps still work directly at http://localhost:5000 and http://localhost:8000/docs\n"
                 "  via:  fast-rio-ctrl.bat dev run apps\n",
                 file=sys.stderr,
             )
@@ -414,7 +414,7 @@ def _frontend_env() -> dict[str, str]:
     return {
         **os.environ,
         "PYTHONPATH": str(PROJECT / "frontend"),
-        "PUBLIC_API_BASE_URL": "http://localhost:18000/api/v1",
+        "PUBLIC_API_BASE_URL": "http://localhost:8000/api/v1",
     }
 
 
@@ -464,11 +464,11 @@ def _app_specs(*, slim: bool) -> list[tuple[str, list[str], Path, dict[str, str]
                 "--host",
                 "0.0.0.0",
                 "--port",
-                "18000",
+                "8000",
             ],
             backend,
             env_be,
-            18000,
+            8000,
         ),
     ]
     if not slim:
@@ -515,7 +515,7 @@ def _spawn_apps_windows(*, slim: bool = False) -> int:
             wait_ports.append(port)
 
     if wait_ports:
-        print("  waiting for app ports :18000, :5000...")
+        print("  waiting for app ports :8000, :5000...")
         missing = _wait_ports(tuple(wait_ports), timeout_s=90.0)
         if missing:
             print(
@@ -556,7 +556,7 @@ def _spawn_apps_unix(*, slim: bool = False) -> int:
             wait_ports.append(port)
 
     if wait_ports:
-        print("  waiting for app ports :18000, :5000...")
+        print("  waiting for app ports :8000, :5000...")
         missing = _wait_ports(tuple(wait_ports), timeout_s=90.0)
         if missing:
             print(
@@ -587,12 +587,12 @@ def _start_apps(*, slim: bool = False) -> int:
     print("  API docs:    http://api.localhost/docs")
     print("  Scalar:      http://api.localhost/sdoc")
     print("  Adminer:     http://adminer.localhost")
-    print("  Traefik:     http://localhost:18090")
+    print("  Traefik:     http://localhost:8080")
     if not slim:
         print("  Worker:      arq (fast-rio-worker console)")
-        print("  Redis:       localhost:16379")
+        print("  Redis:       localhost:6379")
     print()
-    print("Direct: http://localhost:5000  http://localhost:18000/docs")
+    print("Direct: http://localhost:5000  http://localhost:8000/docs")
     if slim:
         print("Slim mode: no Redis / no ARQ worker.")
     print("Stop with: fast-rio-ctrl.bat dev stop all")

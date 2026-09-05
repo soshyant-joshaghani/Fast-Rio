@@ -23,4 +23,4 @@ set PYTHONPATH=.;..\tests\backend
 pytest ..\tests\backend\ -v
 ```
 
-Backend tests need the dev DB (`compose.dev.yml` → `localhost:15432`).
+Backend tests need the dev DB (`compose.dev.yml` → `localhost:5432`).
