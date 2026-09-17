@@ -10,7 +10,8 @@ When asked to build a feature, answer these before writing code:
 
 | Question | Answer |
 |----------|--------|
-| What to read first? | This file → [docs/architecture.md](docs/architecture.md) → [docs/conventions.md](docs/conventions.md) |
+| What to read first? | This file → [`__plans__/PROGRESS.md`](__plans__/PROGRESS.md) → [docs/architecture.md](docs/architecture.md) → [docs/conventions.md](docs/conventions.md) |
+| Where is the live plan? | [`__plans__/PROGRESS.md`](__plans__/PROGRESS.md) (status) · [`__plans__/EXECUTION.md`](__plans__/EXECUTION.md) (detail) — **commit these**; never gitignore `__plans__/` |
 | What architecture to follow? | Router → Service → Repository → Database (see below) |
 | Where does the feature belong? | `backend/app/modules/apps/<name>/` + `frontend/src/modules/apps/<name>/` |
 | Is there a similar feature? | Inspect `modules/apps/` — reuse patterns |
@@ -27,14 +28,32 @@ When asked to build a feature, answer these before writing code:
 
 ## Before you write code
 
-1. Read [ROADMAP.md](ROADMAP.md) for project philosophy.
-2. Read [docs/architecture.md](docs/architecture.md) for structure and layer responsibilities.
-3. Read [docs/conventions.md](docs/conventions.md) for naming, responses, and cross-module rules.
-4. Read relevant docs: [modules.md](docs/modules.md), [background-jobs.md](docs/background-jobs.md), [runtime-profiles.md](docs/runtime-profiles.md).
-5. Inspect the **canonical example** at `backend/app/modules/apps/sample/` and `frontend/src/modules/apps/sample/`.
-6. Inspect any existing module that solves a similar problem — reuse its patterns.
+1. Read [`__plans__/PROGRESS.md`](__plans__/PROGRESS.md) — take the first eligible `pending` stage (or the stage the user named).
+2. Mark that stage `in_progress` in PROGRESS.md before coding.
+3. Read [ROADMAP.md](ROADMAP.md) for project philosophy.
+4. Read [docs/architecture.md](docs/architecture.md) for structure and layer responsibilities.
+5. Read [docs/conventions.md](docs/conventions.md) for naming, responses, and cross-module rules.
+6. Read relevant docs: [modules.md](docs/modules.md), [background-jobs.md](docs/background-jobs.md), [runtime-profiles.md](docs/runtime-profiles.md).
+7. Inspect the **canonical example** at `backend/app/modules/apps/sample/` and `frontend/src/modules/apps/sample/`.
+8. Inspect any existing module that solves a similar problem — reuse its patterns.
 
 Do **not** invent a new architecture per feature. Do **not** explain to the developer where files go — put them in the right place.
+
+## Plan tracking (`__plans__`)
+
+`__plans__/` is the **battle-proven agent workflow** for Fast-kit products. Keep it in git so history shows what was planned, what agents covered, and what remains.
+
+| File | Role |
+|------|------|
+| [PROGRESS.md](__plans__/PROGRESS.md) | Live status board — agents update every stage |
+| [EXECUTION.md](__plans__/EXECUTION.md) | Decisions, critical path, stage acceptance |
+
+**Stage loop (mandatory):**
+
+1. One stage at a time — do not start the next stage in the same pass.
+2. Implement → run relevant tests via `__ctrl__` (`test all` / `test backend` for the touched surface) → only then mark `done`.
+3. Update **Agent / date**, **Note**, and **Last update** in PROGRESS.md.
+4. Never mark `done` on failing tests. Never skip the test gate between stages.
 
 Sibling kits (Fast-Next, Fast-Svelte, Fast-Nuxt, Fast-Rio) stay in sync on shared layers. Backend / `__ctrl__` / infra / UX-contract changes transfer to all four. Frontend UI stays in this kit. Policy: [../README.md](../README.md).
 
@@ -53,6 +72,7 @@ Sibling kits (Fast-Next, Fast-Svelte, Fast-Nuxt, Fast-Rio) stay in sync on share
 | Frontend tests | `tests/frontend/` |
 | Background tasks | `backend/app/worker/tasks.py` + register in `worker.py` |
 | `__ctrl__` CLI | [`docs/cli.md`](docs/cli.md) — do not invent ad-hoc docker scripts |
+| Live plan / progress | [`__plans__/`](__plans__/) — commit; do not gitignore |
 
 ## Scaffolding
 
@@ -118,6 +138,7 @@ When you add or change a table:
 - Add backend tests under `tests/backend/` mirroring the module path.
 - Test meaningful business logic and API behavior — not trivial getters.
 - Run: `__ctrl__\fast-rio-ctrl.bat test backend`
+- **Plan gate:** after each `__plans__` stage, tests must pass before the next stage starts.
 
 ## Configuration
 
@@ -203,6 +224,8 @@ A feature is complete when it has the appropriate layers for its complexity:
 - [ ] Auth where required
 - [ ] Rio UI (if user-facing)
 - [ ] Tests for meaningful behavior
+- [ ] Relevant `__ctrl__` tests green (plan stages: before marking `done`)
+- [ ] [`__plans__/PROGRESS.md`](__plans__/PROGRESS.md) updated when working a planned stage
 - [ ] Background job (if async work required)
 - [ ] Logging for non-trivial operations
 - [ ] Documentation updated if workflow or behavior changed

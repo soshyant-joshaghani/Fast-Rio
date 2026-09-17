@@ -10,7 +10,7 @@ Structured for developers. Guided for AI. From idea to deployable service.
 
 Fast-Rio is a **product-agnostic launchpad** — not a finished product and not a domain-specific template. Use the same foundation for dashboards, CRUD apps, APIs, SaaS products, background-processing services, or AI-powered applications. The difference is the **modules you add**, not a different project architecture.
 
-**Documentation:** [AGENTS.md](AGENTS.md) · [ROADMAP.md](ROADMAP.md) · [docs/](docs/)
+**Documentation:** [AGENTS.md](AGENTS.md) · [ROADMAP.md](ROADMAP.md) · [docs/](docs/) · [execution plan](__plans__/EXECUTION.md) · [live progress](__plans__/PROGRESS.md)
 
 ---
 
@@ -24,6 +24,7 @@ Fast-Rio answers repeated architectural and infrastructure questions before deve
 | **Modularity** | App modules with a canonical reference implementation |
 | **Project control** | `__ctrl__` CLI — one interface for dev, test, and deploy |
 | **AI guardrails** | [AGENTS.md](AGENTS.md) — conventions agents follow instead of reinventing structure |
+| **Plan tracking** | [`__plans__/`](__plans__/) — committed `EXECUTION` + `PROGRESS`; one stage at a time, tests gate the next |
 | **Development workflow** | Hot reload, scaffolding, local tooling |
 | **Testing** | pytest layout mirroring modules |
 | **Deployment** | SSH/VM workflow from laptop to production |
