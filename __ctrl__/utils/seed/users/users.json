@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "key": "demo",
+      "email": "demo.user@example.com",
+      "password": "Demo@1234",
+      "full_name": "Demo User",
+      "is_superuser": false
+    },
+    {
+      "key": "demo2",
+      "email": "demo.second@example.com",
+      "password": "Demo@1234",
+      "full_name": "Second Demo User",
+      "is_superuser": false
+    },
+    {
+      "key": "demo_admin",
+      "email": "demo.admin@example.com",
+      "password": "DemoAdmin@1234",
+      "full_name": "Demo Admin",
+      "is_superuser": true
+    }
+  ]
+}

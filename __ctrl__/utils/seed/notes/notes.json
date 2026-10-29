@@ -1,0 +1,19 @@
+{
+  "notes": [
+    {
+      "user": "demo",
+      "title": "Welcome",
+      "content": "Seeded by the ctrl CLI. Safe to edit or delete."
+    },
+    {
+      "user": "demo",
+      "title": "Shopping list",
+      "content": "Milk\nBread\nCoffee"
+    },
+    {
+      "user": "demo2",
+      "title": "Meeting notes",
+      "content": "Kick-off on Monday. Agenda: scope, timeline, owners."
+    }
+  ]
+}
